@@ -6,6 +6,7 @@ pipeline {
         ZOWE_PASS = credentials('ZOWE_PASS')
         ZOWE_HOST = '204.90.115.200'
         HLQ = 'Z27387'
+        PORT = '10443'
     }
     stages {
         stage('Checkout') {
@@ -20,6 +21,7 @@ pipeline {
                   ./test.cbl \
                   "${HLQ}.COBOL(TEST)" \
                   --host "$ZOWE_HOST" \
+                  --port "$PORT" \
                   --user "$ZOWE_USER" \
                   --password "$ZOWE_PASS" \
                   --reject-unauthorized false
@@ -32,6 +34,7 @@ pipeline {
                   zowe jobs submit data-set \
                   "${HLQ}.JCL(ADDAMT)" \
                   --host "$ZOWE_HOST" \
+                  --port "$PORT" \
                   --user "$ZOWE_USER" \
                   --password "$ZOWE_PASS" \
                   --reject-unauthorized false \
