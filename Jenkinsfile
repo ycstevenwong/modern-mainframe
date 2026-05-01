@@ -18,7 +18,7 @@ pipeline {
                 sh '''
                   zowe files upload file-to-data-set \
                   ./test.cbl \
-                  "${HLQ}".COBOL(TEST)" \
+                  "${HLQ}.COBOL(TEST)" \
                   --host "$ZOWE_HOST" \
                   --user "$ZOWE_USER" \
                   --password "$ZOWE_PASS" \
@@ -30,7 +30,7 @@ pipeline {
             steps {
                 sh '''
                   zowe jobs submit data-set \
-                  "${HLQ}".JCL(ADDAMT) \
+                  "${HLQ}.JCL(ADDAMT)" \
                   --host "$ZOWE_HOST" \
                   --user "$ZOWE_USER" \
                   --password "$ZOWE_PASS" \
