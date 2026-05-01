@@ -17,7 +17,7 @@ pipeline {
             steps {
                 sh '''
                   zowe files upload file-to-data-set \
-                  ./TEST.cbl \
+                  ./test.cbl \
                   "${HLQ}.COBOL(TEST)" \
                   --host "$ZOWE_HOST" \
                   --user "$ZOWE_USER" \
